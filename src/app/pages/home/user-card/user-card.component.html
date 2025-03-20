@@ -1,0 +1,9 @@
+<div class="card shadow" [routerLink]="['/user', myUser._id]">
+    <figure>
+        <img class="images" [src]="myUser.image" [alt]="myUser.first_name">
+    </figure>
+    <div class="p-3 text-center">
+        <h3 class="">{{myUser.first_name}}</h3>
+        <p class="">{{myUser.username}}</p>
+    </div>  
+</div>
