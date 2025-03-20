@@ -1,8 +1,8 @@
-<div class="card shadow" [routerLink]="['/user', myUser._id]">
-    <figure>
-        <img class="images" [src]="myUser.image" [alt]="myUser.first_name">
+<div class="card border-0 shadow" [routerLink]="['/user', myUser._id]">
+    <figure class="d-flex justify-content-center pt-4">
+        <img class="images shadow p-1" [src]="myUser.image" [alt]="myUser.first_name">
     </figure>
-    <div class="p-3 text-center">
+    <div class="text-center">
         <h3 class="">{{myUser.first_name}}</h3>
         <p class="">{{myUser.username}}</p>
     </div>  
