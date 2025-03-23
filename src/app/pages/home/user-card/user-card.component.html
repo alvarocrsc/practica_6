@@ -1,9 +1,10 @@
-<div class="card border-0 shadow" [routerLink]="['/user', myUser._id]">
+<div class="card border-0 shadow">
     <figure class="d-flex justify-content-center pt-4">
-        <img class="images shadow p-1" [src]="myUser.image" [alt]="myUser.first_name">
+        <img class="images shadow" [src]="myUser.image" [alt]="myUser.first_name">
     </figure>
     <div class="text-center">
         <h3 class="">{{myUser.first_name}}</h3>
         <p class="">{{myUser.username}}</p>
     </div>  
+    <app-buttons [myUser]="myUser"></app-buttons>
 </div>

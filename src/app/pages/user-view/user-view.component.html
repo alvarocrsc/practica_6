@@ -1,1 +1,17 @@
-<p>user-view works!</p>
+<section class="d-flex p-4">
+    <div class="border-0 shadow d-flex">
+        <figure class="d-flex justify-content-center pt-4 border-end border-3">
+            <img class="images shadow" [src]="user.image">
+        </figure>
+        <div>
+            <div class="p-4">
+                <h3>{{user.first_name}} {{user.last_name}}</h3>
+                <p>Nombre de Usuario: {{user.username}}</p>
+                <p>Email: {{user.email}}</p>
+            </div>
+            <div>
+                <app-buttons [myUser]="user" [return]="true"></app-buttons>
+            </div>
+        </div>
+    </div>
+</section>

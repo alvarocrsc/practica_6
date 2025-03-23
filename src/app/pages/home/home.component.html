@@ -1,14 +1,28 @@
 <section class="users p-4">
     <div class="row g-4 justify-content-center">
-      @for(user of arrUsers; track user) {
-      <article class="col-12 col-md-6 col-lg-3">
+      @for(user of arrUsers; track user._id) {
+      <article class="col-12 col-md-4 col-lg-3">
         <app-user-card [myUser]="user"></app-user-card>
       </article>
       }
     </div>
-    <div class="d-flex justify-content-between py-5">
-      <button class="btn">Prev</button> 
-      <button class="btn">Next</button>
+    <div class="d-flex justify-content-center">
+      <div class="button-container m-3">
+        <button class="button-3d">
+          <div class="button-top">
+            <span class="material-icons">❮</span>
+          </div>
+          <div class="button-bottom"></div>
+          <div class="button-base"></div>
+        </button>
+        <button class="button-3d">
+          <div class="button-top">
+            <span class="material-icons">❯</span>
+          </div>
+          <div class="button-bottom"></div>
+          <div class="button-base"></div>
+        </button>
+      </div>
     </div>
 </section>
   

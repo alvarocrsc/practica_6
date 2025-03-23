@@ -15,4 +15,13 @@ export class UsersService {
     const res = await lastValueFrom(this.httpClient.get<IResponse>(this.endpoint));
     return res.results;
   }
+
+  async getById(id: string): Promise<IUser> {
+    const res = await lastValueFrom(this.httpClient.get<IUser>(`${this.endpoint}/${id}`));
+    return res;
+  }
+
+  async delete(id: string): Promise<IUser> {
+    return lastValueFrom(this.httpClient.delete<IUser>(`${this.endpoint}/${id}`));
+  }
 }
