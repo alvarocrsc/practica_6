@@ -2,3 +2,39 @@
     border-radius: 50%;
     width: 80%;
 }
+
+.info {
+    border-left: 1px solid black;
+    margin: 2rem;
+}
+
+label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding-bottom: 0.45rem;
+    padding-top: 1rem;
+}
+
+@media screen and (max-width: 960px) {
+    .profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .info {
+        border-left: none;
+        margin: 0;
+        padding-left: 0; /* Elimina el padding izquierdo para móviles */
+    }
+    
+    .info h3 {
+        margin-top: 1rem;
+    }
+
+    .buttons {
+        padding-bottom: 1rem;
+    }
+
+    
+}

@@ -101,3 +101,12 @@ figure p {
   .svgIcon2 {
     width: 20px;
   }
+
+  .buttons {
+    padding-bottom: 1rem;
+  }
+
+  .username {
+    font-size: 0.85rem;
+    font-weight: 600;
+  }

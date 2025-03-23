@@ -1,8 +1,15 @@
 .button-container {
-    display: flex;
-    justify-content: center;
-    margin: 20px;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 250px; 
+  margin: 20px auto;
+}
+
+.button-container p {
+  font-weight: 600;
+}
+
   
   .button-3d {
     -webkit-appearance: none;
@@ -29,7 +36,7 @@
     padding: 8px 16px;
     transform: translateY(0);
     color: #fff;
-    background-image: linear-gradient(145deg, #6a11cb, #2575fc);
+    background-image: linear-gradient(145deg, #000000, rgb(159, 174, 205));
     text-shadow: 0 -1px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
     transition: transform 0.3s, border-radius 0.3s, background 10s;
@@ -38,7 +45,7 @@
   .button-3d:active .button-top {
     border-radius: 10px 10px 8px 8px / 8px;
     transform: translateY(2px);
-    background-image: linear-gradient(145deg, #2575fc, #6a11cb);
+    background-image: linear-gradient(145deg, #000000, rgb(159, 174, 205));
   }
   
   .button-bottom {
@@ -50,7 +57,7 @@
     padding-top: 6px;
     width: calc(100% - 8px);
     height: calc(100% - 10px);
-    background-image: linear-gradient(145deg, #2575fc, #6a11cb);
+    background-image: linear-gradient(145deg, rgb(159, 174, 205), #000000);
     box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
     transition: border-radius 0.2s, padding-top 0.2s;
   }
@@ -76,5 +83,9 @@
   
   .button-3d:active .button-base {
     border-radius: 10px 10px 8px 8px / 8px;
+  }
+
+  .usercard {
+    max-width: 400px;
   }
   

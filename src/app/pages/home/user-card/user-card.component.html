@@ -4,7 +4,7 @@
     </figure>
     <div class="text-center">
         <h3 class="">{{myUser.first_name}}</h3>
-        <p class="">{{myUser.username}}</p>
+        <p class="username">{{'@' + myUser.username}}</p>
     </div>  
-    <app-buttons [myUser]="myUser"></app-buttons>
+    <app-buttons [myUser]="myUser" class="buttons"></app-buttons>
 </div>

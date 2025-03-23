@@ -13,7 +13,7 @@ import { UsersService } from '../../services/users.service';
 export class ButtonsComponent {
   @Input() myUser!: IUser;
   @Input() return: Boolean = false;
-  usersServie = inject(UsersService);
+  usersService = inject(UsersService);
   router = inject(Router);
 
   deleteUser(id: string) {
@@ -21,7 +21,11 @@ export class ButtonsComponent {
       action: {
         label: 'Yes',
         onClick: async () => {
-          let response = await this.usersServie.delete(id);
+          let response = await this.usersService.delete(id);
+          if (response.error) {
+            toast.error(response.error);
+          }
+          toast.success(`User @${this.myUser.username} deleted successfully`);
           this.router.navigate(['/home']);
         }
       }

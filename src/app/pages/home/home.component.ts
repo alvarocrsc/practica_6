@@ -12,6 +12,8 @@ import { UserCardComponent } from "./user-card/user-card.component";
 export class HomeComponent {
   arrUsers: IUser[] = [];
   usersService = inject(UsersService);
+  currentPage: number = 1;
+  totalPages: number = 2;
 
   ngOnInit(): void {
     this.loadUsers();
@@ -19,18 +21,19 @@ export class HomeComponent {
 
   async loadUsers() {
     try {
-      this.arrUsers = await this.usersService.getAll();
-      console.log(this.arrUsers);
+      this.arrUsers = await this.usersService.getAll(this.currentPage);
     } catch (error) {
       console.error(error);
     }
   }
 
   gotoPrev() {
-
+    this.currentPage = this.currentPage === 1 ? this.totalPages : this.currentPage - 1;
+    this.loadUsers();
   }
 
   gotoNext() {
-
+    this.currentPage = this.currentPage === this.totalPages ? 1 : this.currentPage + 1;
+    this.loadUsers();
   }
 }

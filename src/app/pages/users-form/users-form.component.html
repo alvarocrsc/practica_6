@@ -1,1 +1,61 @@
-<p>users-form works!</p>
+<div class="card border-0 shadow p-5 mt-5">
+    <button class="button" [routerLink]="['/home']">
+        <span class="X"></span>
+        <span class="Y"></span>
+    </button> 
+    <div class="profile">
+        <h3>{{title}}</h3>
+        @if (userForm.get('_id')?.value) {
+        <img class="img shadow" [src]="user.image" alt="">
+        }
+    </div>     
+    <form [formGroup]="userForm" (ngSubmit)="getDataForm()">
+        <input type="hidden" formControlName="_id">
+        <div class="d-flex justify-content-between gap-3">
+            <div>
+                <label for="first_name">First name</label>
+                <input type="text" id="first_name" class="form-control input" placeholder="First name" formControlName="first_name">
+                @if(checkControl('first_name', 'required')) {
+                    <p class="error">The field is required</p>
+                    }
+                @if(checkControl('first_name', 'minlength')) {
+                <p class="error">The field must have at least 3 characters</p>
+                }
+            </div>
+            <div>
+                <label for="last_name">Last name</label>
+                <input type="text" id="last_name" class="form-control input" placeholder="Last name" formControlName="last_name">
+                @if(checkControl('last_name', 'required')) {
+                    <p class="error">The field is required</p>
+                    }
+                @if(checkControl('last_name', 'minlength')) {
+                <p class="error">The field must have at least 3 characters</p>
+                }
+            </div>
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="text" id="email" class="form-control input" placeholder="New Email" formControlName="email">
+            @if(checkControl('email', 'required')) {
+                <p class="error">The field is required</p>
+                }
+            @if(checkControl('email', 'pattern')) {
+            <p class="error">Not valid email</p>
+            }
+        </div>
+        <div>
+            <label for="image">User Image</label>
+            <input type="text" id="image" class="form-control input" placeholder="New User image" formControlName="image">
+            @if(checkControl('image', 'required')) {
+                <p class="error">The field is required</p>
+                }
+            @if(checkControl('image', 'pattern')) {
+            <p class="error">Please introduce a valid image URL</p>
+            }
+        </div>
+        <input type="submit" class="submit w-100 bg-black text-white border-0" [disabled]="userForm.invalid" [value]="userForm.get('_id')?.value ? 'Update' : 'Register'">
+        <div class="d-flex justify-content-center">
+            <p class="terms pt-3 opacity-75">By submitting this form I agree with the <a class="text-black">Privacy Policy</a></p>
+        </div>
+    </form>
+</div>

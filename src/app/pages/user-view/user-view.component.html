@@ -1,15 +1,17 @@
-<section class="d-flex p-4">
-    <div class="border-0 shadow d-flex">
-        <figure class="d-flex justify-content-center pt-4 border-end border-3">
+<section class="d-flex p-5">
+    <div class="border-0 d-flex shadow profile p-4">
+        <figure class="d-flex justify-content-center pt-4">
             <img class="images shadow" [src]="user.image">
         </figure>
-        <div>
+        <div class="info">
             <div class="p-4">
                 <h3>{{user.first_name}} {{user.last_name}}</h3>
-                <p>Nombre de Usuario: {{user.username}}</p>
-                <p>Email: {{user.email}}</p>
+                <label>Username:</label>
+                <p>{{user.username}}</p>
+                <label>Email:</label>
+                <p>{{user.email}}</p>
             </div>
-            <div>
+            <div class="buttons">
                 <app-buttons [myUser]="user" [return]="true"></app-buttons>
             </div>
         </div>

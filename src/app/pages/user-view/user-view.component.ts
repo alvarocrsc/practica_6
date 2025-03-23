@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { IUser } from '../../interfaces/iuser.interface';
 import { UsersService } from '../../services/users.service';
 import { ButtonsComponent } from "../../shared/buttons/buttons.component";
+import { toast } from 'ngx-sonner';
 
 @Component({
   selector: 'app-user-view',
@@ -11,7 +12,7 @@ import { ButtonsComponent } from "../../shared/buttons/buttons.component";
   styleUrl: './user-view.component.css'
 })
 export class UserViewComponent {
-  user: IUser = {
+  user: IUser | any = {
     _id: '',
     id: 0,
     first_name: '',
@@ -31,9 +32,11 @@ export class UserViewComponent {
       if (idUser) {
         try {
           this.user = await this.usersService.getById(idUser);
-          console.log(this.user); // ESTE ES EL MENSAJE QUE HAY QUE SACAR POR TOAST
+          if (this.user.error) {
+            toast.error(this.user.error);
+          }
         } catch (error) {
-          console.error("Error al obtener usuario:", error);
+          console.error("Error al obtener usuario: ", error);
         }
       }
     });
